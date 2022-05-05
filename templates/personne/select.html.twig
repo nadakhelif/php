@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Hello ProductController!{% endblock %}
+
+{% block body %}
+<div class="container">
+<div class="row">
+{% for personne in personnes %}
+
+
+    <div class="card col-5 m-2" style="...">
+        <div class="card-body">
+            <h5 class="card-title">Product</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{personne.firstName}}</h6>
+            <p class="card-text"> {{personne.lastName}} </p>
+            <p class="card-text"> {{personne.age}} </p>
+            <a href="/personne/detail/{{personne.id}}">details</a>
+            <a href="{{ path('delete.personne',{'personne':personne.id})}}">delete</a>
+            <a href="{{ path('personne.update',{'personne':personne.id})}}">update</a>
+
+        </div>
+    </div>
+
+
+{% endfor %}
+</div>
+</div>
+
+{% endblock %}
